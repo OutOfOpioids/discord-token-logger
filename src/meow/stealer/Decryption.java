@@ -42,14 +42,6 @@ public class Decryption {
     }
 
     public static String AESDecrypt(byte[] buff, byte[] key) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        /* python to java
-        iv = buff[3:15]
-        payload = buff[15:]
-        cipher = AES.new(master_key, AES.MODE_GCM, iv)
-        decrypted_pass = cipher.decrypt(payload)
-        decrypted_pass = decrypted_pass[:-16].decode()
-         */
-
         byte[] iv = new byte[12];
         System.arraycopy(buff, 3, iv, 0, 12);
         byte[] payload = new byte[buff.length - 15];
